@@ -15,8 +15,8 @@ class Order extends DataModel {
 	public $matcherFee;
     
 	/**
-     * @inheritDoc
-     */	
+	 * @inheritDoc
+	 */
 	public function formats() {
 		return [
 			['senderPublicKey', 'bytes', 'base58'=>true],

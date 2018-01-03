@@ -228,11 +228,11 @@ class Account {
 	
 	public static function chainedHash($bytes = '') {
 		return self::keccak256( self::blake2b256($bytes) );
-    }
+	}
 	
 	public static function secure($string = '') {
 		return self::to58( self::chainedHash($string) );
-    }
+	}
 
 	public function buildSeedHash($nonce = 0) {
 		if (!self::chainedHash(''))

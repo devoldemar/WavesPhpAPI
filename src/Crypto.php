@@ -19,12 +19,12 @@ trait Crypto {
 			return null;
 	}	
 	
-    /**
-     * @param binary $data  
-     * @param binary $privateKey 
-     * 
-     * @return binary
-     */
+	/**
+	 * @param binary $data  
+	 * @param binary $privateKey 
+	 * 
+	 * @return binary
+	 */
 	public function sign25519($data = '', $privateKey) {
 		if (function_exists('\curve25519_sign') && $data) {
 			if (function_exists('\openssl_random_pseudo_bytes'))
@@ -40,11 +40,11 @@ trait Crypto {
 			return null;
 	}
 	
-    /**
-     * @param binary $seed 
-     * 
-     * @return array
-     */
+	/**
+	 * @param binary $seed 
+	 * 
+	 * @return array
+	 */
 	public function keypair25519($seed) {
 		if (function_exists('\curve25519_private')) {
 			if (!$seed) {

@@ -7,8 +7,8 @@ class OrderRollback extends DataModel {
 	public $orderId;
     
 	/**
-     * @inheritDoc
-     */	
+	 * @inheritDoc
+	 */
 	public function formats() {
 		return [
 			['sender', 'bytes', 'base58'=>true],

@@ -7,8 +7,8 @@ namespace Wavesapi;
 trait Base58 {
     
 	/**
-     * @var object Base58 encoder/decoder
-     */	
+	 * @var object Base58 encoder/decoder
+	 */
 	public static $base58;
 	
 	private static function check58() {

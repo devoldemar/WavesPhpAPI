@@ -5,27 +5,27 @@ class Request {
 	
 	use Crypto, Base58;
 	
-    /**
-     * @var string POST/PUT data
-     */	
+	/**
+	 * @var string POST/PUT data
+	 */	
 	public $data;
 
-    /**
-     * @var string Path to request (optionally with query string)
-     */	
+	/**
+	 * @var string Path to request (optionally with query string)
+	 */	
 	public $uri;	
 
 	protected $publicKey;
 	protected $privateKey;
 	
-    /**
-     * @var string Rest-api key
-     */	
+	/**
+	 * @var string Rest-api key
+	 */
 	protected static $apiKey;
 	
-    /**
-     * @var string Host for node rest-api
-     */	
+	/**
+	 * @var string Host for node rest-api
+	 */	
 	public static $host;
 
 	public function __construct($conf = []) {
@@ -51,15 +51,15 @@ class Request {
 			throw new \Exception('Empty private key');
 	}
 	
-    /**
-     * Performs request and returns the JSON-decoded response (string|StdObject|null)
-     * 
-     * @param string $type 'GET' || 'POST'
-     * @param string $uri Path or resource
+	/**
+	 * Performs request and returns the JSON-decoded response (string|StdObject|null)
+	 * 
+	 * @param string $type 'GET' || 'POST'
+	 * @param string $uri Path or resource
 	 * @param array $headers 
-     * 
-     * @return string|null
-     */
+	 * 
+	 * @return string|null
+	 */
 	protected function execute($type = 'GET', $uri = '', $headers = []) {
 		$extraHeaderStr = '';
 		if ($headers && is_array($headers)) {
@@ -76,21 +76,21 @@ class Request {
 		return json_decode( shell_exec($cmd) );
 	}
 	
-    /**
-     * @see self::execute
-     */	
+	/**
+	 * @see self::execute
+	 */	
 	public function get($uri = '', $headers = []) {
 		if (!$uri)
 			$uri = $this->uri;
 		return $this->execute('GET', $uri, $headers);
 	}
 	
-    /**
-     * @see self::execute
-     */	
+	/**
+	 * @see self::execute
+	 */
 	public function post($uri = '', $headers = []) {
 		if (!$uri)
-			$uri = $this->uri;		
+			$uri = $this->uri;	
 		return $this->execute('POST', $uri, $headers);
 	}
 }

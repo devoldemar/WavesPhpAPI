@@ -4,8 +4,8 @@ namespace Wavesapi;
 class Transfer extends DataModel {
     
 	/**
-     * @var int Transaction type byte (0x04) used in the original blockchain
-     */
+	 * @var int Transaction type byte (0x04) used in the original blockchain
+	 */
 	protected $txType = 4;
 	
 	public $assetId;
@@ -18,8 +18,8 @@ class Transfer extends DataModel {
 	public $attachment;
     
 	/**
-     * @inheritDoc
-     */	
+	 * @inheritDoc
+	 */	
 	public function formats() {
 		return [
 			['txType', 'uInt8', 'base58'=>false],

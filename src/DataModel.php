@@ -8,9 +8,9 @@ class DataModel {
 	public $signature;
     
 	/**
-     * Specifying formats for all attributes
+	 * Specifying formats for all attributes
 	 * Order of attributes is used for signature calculation 
-     */	
+	 */	
 	public function formats() {
 		//example: ['timestamp', 'uInt64', 'base58'=>false]
 		return [];
@@ -24,11 +24,11 @@ class DataModel {
 		}
 	}
 
-    /**
-     * Calculate data bytes
+	/**
+	 * Calculate data bytes
 	 *
 	 * @return binary
-     */
+	 */
 	public function getDataBytes() {
 		$data = '';
 		foreach ($this->formats() as $row) {
