@@ -1,6 +1,6 @@
 <?php
 /**
- * @see https://github.com/wavesplatform
+ * @see https://github.com/wavesplatform/Waves
  */
 namespace Wavesapi;
 

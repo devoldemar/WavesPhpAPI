@@ -1,4 +1,14 @@
 <?php
+/**
+ * Arbitrary data model for Wavesnode REST API wrapper
+ * Used to construct request body with signature
+ *
+ * @author     Vladimir Vyatkin <voldemarpro@hotmail.com>
+ * @copyright  Copyright (c) 2017-2018 Vladimir Vyatkin
+ * @link       https://github.com/voldemarpro/WavesPhpAPI
+ * @see        https://github.com/wavesplatform/Waves
+ */
+ 
 namespace Wavesapi;
 
 class DataModel {
