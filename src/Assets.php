@@ -45,6 +45,7 @@ class Assets extends Request {
 	 */
 	public function broadcastTransfer(array $params) {
 		$model = new Transfer($params);
+		$model->senderPublicKey = $this->publicKey;
 		
 		$arr = $model->toArray();
 		$arr['signature'] = $this->sign($model->getDataBytes());
