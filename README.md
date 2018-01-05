@@ -22,15 +22,6 @@ All crypto-methods are combined in trait, so one may use custom implementation o
 3. Edit *composer.json* accordingly to your preferences
 4. Clone the repo and use *composer* to complete the installation
 
-### Yii2 note
-One of integration option can be creation of *Wavesapi* dir with source code under *vendor* directory. Then you just have to add the correspnding alias in config file
-```
-'aliases' => [
-  // other rules
-  '@Wavesapi' => '@vendor/Wavesapi'
- ]
-```
-
 ## Usage
 
 ### Account
@@ -47,31 +38,31 @@ Get base58-encoded seed
 
 ```
 $account->getSeed();
-// or as a propery
+// or as a property
 $account->seed
 ```
 
-Get base58-encoded public key (from zero nonce)
+Get base58-encoded public key (nonce = 0)
 
 ```
 $account->getPublicKey();
-// or as a propery
+// or as a property
 $account->publicKey
 ```
 
-Get base58-encoded private key (from zero nonce)
+Get base58-encoded private key (nonce = 0)
 
 ```
 $account->getPrivateKey();
-// or as a propery
+// or as a property
 $account->privateKey
 ```
 
-Get address
+Get base58-encoded address
 
 ```
 $account->getAddress();
-// or as a propery
+// or as a property
 $account->address
 ```
 
@@ -91,7 +82,7 @@ $address = new \Wavesapi\Address([
 ]);
 // list of addresses in the node's wallet
 $address->getList();
-// create new address from for the current seed
+// create new address for the current seed
 $address->create();
 // balance in WAVES
 $address->getBalance();
