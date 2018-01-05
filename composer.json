@@ -9,11 +9,21 @@
             "homepage": "https://github.com/voldemarpro"
         }       
     ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "repositories": [
+        {
+           "type": "vcs",
+           "url": "https://github.com/voldemarpro/keccak"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
         "stephenhill/base58": "1.1.4",
         "ext-curve25519": "*",
-        "ext-blake2": "*"
+        "ext-blake2": "*",
+        "voldemarpro/keccak": "dev-master"
     },
     "autoload": {
         "psr-4": {
