@@ -268,5 +268,9 @@ class Account {
 	public function getSeed() {
 		return $this->seed;
 	}
+	
+	public function getAddress() {
+		return $this->address;
+	}
 }
 ?> 
