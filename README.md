@@ -16,6 +16,21 @@ See [https://github.com/wavesplatform/Waves/wiki](https://github.com/wavesplatfo
 Hashing is applied only in manipulations with account (wallet) and node's API key.
 All crypto-methods are combined in trait, so one may use custom implementation of any of these algorithms.
 
+## Installation
+1. Clone [curve-25519 repository](https://github.com/mgp25/curve25519-php) and compile the extension
+2. Clone [blake2 repossitory](https://github.com/strawbrary/php-blake2) and compile the extension (optional)
+3. Edit *composer.json* accordingly to your preferences
+4. Clone the repo and use *composer* to complete the installation
+
+### Yii2
+One of integration option can be creation of *Wavesapi* dir with source code under *vendor* directory. Then you just have to add the correspnding alias in config file
+```
+'aliases' => [
+  // other rules
+  '@Wavesapi' => '@vendor/Wavesapi'
+ ]
+```
+
 ## Usage
 
 ### Account
@@ -30,15 +45,35 @@ or import existing one
 
 Get base58-encoded seed
 
-```$account->getSeed();```
+```
+$account->getSeed();
+// or as a propery
+$account->seed
+```
 
-Get base58-encoded public key
+Get base58-encoded public key (from zero nonce)
 
-```$account->getPublicKey();```
+```
+$account->getPublicKey();
+// or as a propery
+$account->publicKey
+```
 
-Get base58-encoded private key
+Get base58-encoded private key (from zero nonce)
 
-```$account->getPrivateKey();```
+```
+$account->getPrivateKey();
+// or as a propery
+$account->privateKey
+```
+
+Get address
+
+```
+$account->getAddress();
+// or as a propery
+$account->address
+```
 
 Use the following solution instead of '/utils/hash' API method
 ```
@@ -85,8 +120,8 @@ $assets->getDistribution($assetId);
 
 Publish signed asset transfer transaction to the blockchain:
 ```
+// every key in the pair is also expected to be base58-encoded string
 // timestamp should be passed in milliseconds, e.g. time() * 1000
-// private key is also expected to be base58-encoded string
 $assets->setCredentials($senderPublicKey, $senderPrivateKey);
 $assets->broadcastTransfer([
   'assetId'       =>  $assetId,
@@ -119,9 +154,9 @@ Price (price per unit) should be normalized on WAVES asset precision accordingly
 // price-amount orderbook (depth of market) for a given asset pair
 $dex->getDOM($amountAsset, $priceAsset);
 
-// order history for a given public key
 $dex->setCredentials($senderPublicKey, $senderPrivateKey);
 
+// order history for a given public key
 $dex->getHistoryByPublicKey();
 
 // create limit order
