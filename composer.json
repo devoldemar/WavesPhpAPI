@@ -1,0 +1,23 @@
+{
+    "name": "voldemarpro/WavesPhpAPI",
+    "description": "PHP library to interact with Waves node and blockchain",
+    "keywords": ["wavesnode", "wavesnode REST API", "waves DEX", "waves blockchain", "matcher"],
+    "license": "MIT",
+    "authors": [
+         {
+            "name": "Vladimir Vyatkin",
+            "homepage": "https://github.com/voldemarpro"
+        }       
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "stephenhill/base58": "1.1.4",
+        "ext-curve25519": "*",
+        "ext-blake2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wavesapi\\": "src"
+        }
+    }
+}
