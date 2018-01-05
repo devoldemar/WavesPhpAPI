@@ -22,7 +22,7 @@ All crypto-methods are combined in trait, so one may use custom implementation o
 3. Edit *composer.json* accordingly to your preferences
 4. Clone the repo and use *composer* to complete the installation
 
-### Yii2
+### Yii2 note
 One of integration option can be creation of *Wavesapi* dir with source code under *vendor* directory. Then you just have to add the correspnding alias in config file
 ```
 'aliases' => [
@@ -82,7 +82,7 @@ Use the following solution instead of '/utils/hash' API method
 ```
 
 ### Address
-All path-related classes are subclasses of \Wavesapi\Request. You have to configure the superclass by passing host name and api_key in the constructor of the child object.
+All path-related classes are subclasses of \Wavesapi\Request. You have to configure the superclass by passing hostname and api_key in the constructor of the child object.
 Port number should be specified in host param if necessary.
 ```
 $address = new \Wavesapi\Address([
@@ -101,7 +101,7 @@ $address->getBalance();
 $txn = new \Wavesapi\Transaction();
 // transaction's data by its id 
 $txn->getById($txn_id);
-// latest transactions by the given account address
+// latest transactions by a given address
 $txn->getByAccount($addr, $limit);
 ```
 ### Assets
@@ -111,7 +111,7 @@ $assets = new \Wavesapi\Assets();
 // balances for all assets that the account with given address ever had (besides WAVES)
 $assets->getBalance($addr);
 
-// account's balance for the given asset
+// account's balance for a given asset
 $assets->getBalanceForId($addr, $assetId)
 
 // distribution of asset balance over accounts
@@ -148,7 +148,7 @@ $dex->getPublicKey();
 ```
 
 Price and amount are always specified as integers with merged decimal positions.
-Price (price per unit) should be normalized on WAVES asset precision accordingly to the formula $price = $yourPrice * (10^8 / $amountAssetPrecision).
+Price (price per unit) **should be normalized** on WAVES asset precision accordingly to the formula $normPrice = $price * (10^8 / $amountAssetPrecision).
 
 ```
 // price-amount orderbook (depth of market) for a given asset pair
