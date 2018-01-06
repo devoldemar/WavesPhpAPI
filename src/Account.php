@@ -1,4 +1,13 @@
 <?php
+/**
+ * WAVES account and keypair builder
+ * Cryptographic basics for work with WAVES blockchain
+ *
+ * @author     Vladimir Vyatkin <voldemarpro@hotmail.com>
+ * @copyright  Copyright (c) 2017-2018 Vladimir Vyatkin
+ * @link       https://github.com/voldemarpro/WavesPhpAPI
+ * @see        https://github.com/wavesplatform/Waves
+ */
 namespace Wavesapi;
 
 class Account {
