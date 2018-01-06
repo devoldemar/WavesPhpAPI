@@ -212,7 +212,7 @@ class Account {
         } else {
 			$words = $this->words;
 			if (shuffle($words)) {
-				$seedWords = array_slice(0, 15, $words);
+				$seedWords = array_slice($words, 0, 15);
 				$this->seed = self::to58( implode(' ', $seedWords) );
 			} else
 				throw new \Exception('Invalid word bank');
