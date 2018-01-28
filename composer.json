@@ -1,12 +1,12 @@
 {
-    "name": "voldemarpro/WavesPhpAPI",
+    "name": "devoldemar/WavesPhpAPI",
     "description": "PHP library to interact with Waves node and blockchain",
     "keywords": ["wavesnode", "wavesnode REST API", "waves DEX", "waves blockchain", "matcher"],
     "license": "MIT",
     "authors": [
          {
             "name": "Vladimir Vyatkin",
-            "homepage": "https://github.com/voldemarpro"
+            "homepage": "https://github.com/devoldemar"
         }       
     ],
     "config": {
@@ -15,7 +15,7 @@
     "repositories": [
         {
            "type": "vcs",
-           "url": "https://github.com/voldemarpro/keccak"
+           "url": "https://github.com/devoldemar/keccak"
         }
     ],
     "require": {
@@ -23,7 +23,7 @@
         "stephenhill/base58": "1.1.4",
         "ext-curve25519": "*",
         "ext-blake2": "*",
-        "voldemarpro/keccak": "dev-master"
+        "devoldemar/keccak": "dev-master"
     },
     "autoload": {
         "psr-4": {
