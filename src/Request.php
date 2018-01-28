@@ -15,6 +15,8 @@ class Request {
 	
 	use Crypto, Base58;
 	
+	const EXPORT = 0x01;
+	
 	/**
 	 * @var string POST/PUT data
 	 */	
@@ -34,6 +36,11 @@ class Request {
 	protected static $apiKey;
 	
 	/**
+	 * @var string Request export flag
+	 */
+	protected static $export = false;
+	
+	/**
 	 * @var string Host for node rest-api
 	 */	
 	public static $host;
@@ -43,6 +50,11 @@ class Request {
 			self::$host = $conf['host'];
 		if (!empty($conf['api_key']))
 			self::$apiKey = $conf['api_key'];
+		
+		if (!empty($conf['flags'])) {
+			if (0x01 & $conf['flags'])
+				self::$export = true;
+		}		
 	}	
 	
 	public function setCredentials($publicKey = '', $privateKey = '') {
@@ -85,7 +97,17 @@ class Request {
 		
 		$cmd = "curl -X $type --header 'Accept: application/json' $extraHeaderStr$dataStr".static::$host."$uri";
 
-		return json_decode( shell_exec($cmd) );
+		if (self::$export) {
+			return [
+				'type' => $type,
+				'headers' => array_merge(['Accept'=>'application/json'], $headers),
+				'host' => static::$host,
+				'uri' => $uri,
+				'data' => $this->data
+			];
+			
+		} else
+			return json_decode( shell_exec($cmd) );
 	}
 	
 	/**
