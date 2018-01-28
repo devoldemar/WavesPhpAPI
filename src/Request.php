@@ -55,10 +55,12 @@ class Request {
 	}
 	
 	public function sign($data = '') {
-		if ($this->privateKey) {
-			return self::to58( $this->sign25519($data, self::from58($this->privateKey)) );
-		} else
-			throw new \Exception('Empty private key');
+		if (!preg_match('|^[A-Za-z0-9]{32,}$|', $this->publicKey))
+			throw new \Exception('Incorrect public key');
+		elseif (!preg_match('|^[A-Za-z0-9]{32,}$|', $this->privateKey))
+			throw new \Exception('Incorrect private key');		
+
+		return self::to58( $this->sign25519($data, self::from58($this->privateKey)) );
 	}
 	
 	/**
