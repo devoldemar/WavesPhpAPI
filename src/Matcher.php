@@ -96,6 +96,7 @@ class Matcher extends Request {
 			$params['priceAsset'] = 'WAVES';
 		
 		$model = new OrderRollback($params);
+		$model->sender = $this->publicKey;
 
 		$arr = $model->toArray();
 		$arr['signature'] = $this->sign($model->getDataBytes());
