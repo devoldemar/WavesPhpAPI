@@ -84,8 +84,8 @@ $address = new \Wavesapi\Address([
 $address->getList();
 // create new address for the current seed
 $address->create();
-// balance in WAVES
-$address->getBalance();
+// balance in WAVES for account {address} after {confirmations} confirmations
+$address->getBalance($address, $confirmations);
 ```
 ### Transaction
 ```
