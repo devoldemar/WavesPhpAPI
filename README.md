@@ -168,7 +168,6 @@ $dex->createOrder([
 $dex->cancelOrder([
   'amountAsset'  =>  $amountAsset,
   'priceAsset'   =>  $priceAsset,
-  'orderId'      =>  $orderId,
-  'timestamp'    =>  $timestamp
+  'orderId'      =>  $orderId
 ]);
 ```
