@@ -6,7 +6,7 @@ In spite of including only basic functional, it's easily extensible for all oper
 See [https://github.com/wavesplatform/Waves/wiki](https://github.com/wavesplatform/Waves/wiki) to learn more about REST API
 
 ## Requirements 
-  * CURL utility (console access)
+  * CURL utility (console access, optional)
   * PHP 5.4+
   * Base58 encoder/decoder
   * Curve-25519 extension
@@ -171,3 +171,11 @@ $dex->cancelOrder([
   'orderId'      =>  $orderId
 ]);
 ```
+### Request export
+If special `EXPORT` flag is provided API request will be not sent and corresponding method will return an associative array with the following keys: `type`, `headers`, `host`, `uri` and `data`. Then custom socket program (not CURL) can be used to perform the request, or it can be transmitted to a client such as web browser and applied via XHR / AJAX.
+```
+$address = new \Wavesapi\Address([
+  'host'    => $host,
+  'api_key' => $api_key,
+  'flags'   => \Wavesapi\Request::EXPORT
+]);
