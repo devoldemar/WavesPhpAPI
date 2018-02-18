@@ -271,7 +271,7 @@ class Account {
 	}
 
 	public function getPrivateKey() {
-		return $this->publicKey;
+		return $this->privateKey;
 	}
 	
 	public function getSeed() {
