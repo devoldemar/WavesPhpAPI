@@ -95,7 +95,8 @@ class Request {
 		if ($this->data)
 			$dataStr = " --data '{$this->data}' ";
 		
-		$cmd = "curl -X $type --header 'Accept: application/json' $extraHeaderStr$dataStr".static::$host."$uri";
+		$post301 = ($type == 'POST' ? ' --post301' : '');
+		$cmd = "curl -L$post301 -X $type --max-time 2 --header 'Accept: application/json' $extraHeaderStr$dataStr".static::$host."$uri";
 
 		if (self::$export) {
 			return [
